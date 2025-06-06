@@ -18,17 +18,17 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-breakfast-100 via-breakfast-50 to-accent">
+      <section className="relative py-20 bg-gradient-to-br from-orange-50 via-white to-amber-50">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gradient animate-fade-in">
               晨光早餐店
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 animate-fade-in">
+            <p className="text-xl md:text-2xl text-gray-600 mb-8 animate-fade-in">
               新鮮現做 • 溫暖美味 • 每一口都是幸福的滋味
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -38,7 +38,7 @@ const Index = () => {
                 </Button>
               </Link>
               <Link to="/order-status">
-                <Button variant="outline" size="lg" className="text-lg px-8 py-4">
+                <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-gray-300 text-gray-700 hover:border-orange-500 hover:text-orange-500">
                   查詢訂單
                 </Button>
               </Link>
@@ -46,32 +46,32 @@ const Index = () => {
             
             {/* Store Info */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
-              <Card className="bg-card/80 backdrop-blur-sm">
+              <Card className="bg-white border-gray-200 shadow-sm">
                 <CardContent className="p-4 flex items-center space-x-3">
-                  <Clock className="w-5 h-5 text-primary" />
+                  <Clock className="w-5 h-5 text-orange-500" />
                   <div className="text-left">
-                    <p className="font-semibold">營業時間</p>
-                    <p className="text-sm text-muted-foreground">06:00 - 14:00</p>
+                    <p className="font-semibold text-gray-900">營業時間</p>
+                    <p className="text-sm text-gray-600">06:00 - 14:00</p>
                   </div>
                 </CardContent>
               </Card>
               
-              <Card className="bg-card/80 backdrop-blur-sm">
+              <Card className="bg-white border-gray-200 shadow-sm">
                 <CardContent className="p-4 flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-primary" />
+                  <Phone className="w-5 h-5 text-orange-500" />
                   <div className="text-left">
-                    <p className="font-semibold">訂購專線</p>
-                    <p className="text-sm text-muted-foreground">02-1234-5678</p>
+                    <p className="font-semibold text-gray-900">訂購專線</p>
+                    <p className="text-sm text-gray-600">02-1234-5678</p>
                   </div>
                 </CardContent>
               </Card>
               
-              <Card className="bg-card/80 backdrop-blur-sm">
+              <Card className="bg-white border-gray-200 shadow-sm">
                 <CardContent className="p-4 flex items-center space-x-3">
-                  <MapPin className="w-5 h-5 text-primary" />
+                  <MapPin className="w-5 h-5 text-orange-500" />
                   <div className="text-left">
-                    <p className="font-semibold">店面地址</p>
-                    <p className="text-sm text-muted-foreground">台北市中山區</p>
+                    <p className="font-semibold text-gray-900">店面地址</p>
+                    <p className="text-sm text-gray-600">台北市中山區</p>
                   </div>
                 </CardContent>
               </Card>
@@ -80,16 +80,16 @@ const Index = () => {
         </div>
         
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ArrowDown className="w-6 h-6 text-primary" />
+          <ArrowDown className="w-6 h-6 text-orange-500" />
         </div>
       </section>
 
       {/* Categories Section */}
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">精選分類</h2>
-            <p className="text-muted-foreground text-lg">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">精選分類</h2>
+            <p className="text-gray-600 text-lg">
               探索我們豐富多樣的早餐選擇
             </p>
           </div>
@@ -97,13 +97,13 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {categories.map((category) => (
               <Link key={category.id} to={`/products?category=${category.id}`}>
-                <Card className="card-hover cursor-pointer group">
+                <Card className="card-hover cursor-pointer group bg-white border-gray-200">
                   <CardContent className="p-6 text-center">
                     <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
                       {category.icon}
                     </div>
-                    <h3 className="font-semibold text-lg mb-2">{category.name}</h3>
-                    <Badge variant="secondary">
+                    <h3 className="font-semibold text-lg mb-2 text-gray-900">{category.name}</h3>
+                    <Badge className="bg-orange-100 text-orange-800 border-0">
                       {category.count} 項商品
                     </Badge>
                   </CardContent>
@@ -115,11 +115,11 @@ const Index = () => {
       </section>
 
       {/* Featured Products Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">熱門推薦</h2>
-            <p className="text-muted-foreground text-lg">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">熱門推薦</h2>
+            <p className="text-gray-600 text-lg">
               顧客最愛的經典美味
             </p>
           </div>
@@ -141,19 +141,19 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-coffee-800 text-white py-12">
+      <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <h3 className="text-xl font-bold mb-4">晨光早餐店</h3>
-              <p className="text-coffee-200 mb-4">
+              <p className="text-gray-300 mb-4">
                 提供最新鮮、最美味的早餐，讓您的每一天都從美好開始。
               </p>
             </div>
             
             <div>
               <h3 className="text-xl font-bold mb-4">營業資訊</h3>
-              <div className="space-y-2 text-coffee-200">
+              <div className="space-y-2 text-gray-300">
                 <p>營業時間：06:00 - 14:00</p>
                 <p>電話：02-1234-5678</p>
                 <p>地址：台北市中山區民生東路123號</p>
@@ -163,17 +163,17 @@ const Index = () => {
             <div>
               <h3 className="text-xl font-bold mb-4">快速連結</h3>
               <div className="space-y-2">
-                <Link to="/products" className="block text-coffee-200 hover:text-white transition-colors">
+                <Link to="/products" className="block text-gray-300 hover:text-orange-400 transition-colors">
                   線上訂購
                 </Link>
-                <Link to="/order-status" className="block text-coffee-200 hover:text-white transition-colors">
+                <Link to="/order-status" className="block text-gray-300 hover:text-orange-400 transition-colors">
                   訂單查詢
                 </Link>
               </div>
             </div>
           </div>
           
-          <div className="border-t border-coffee-600 mt-8 pt-8 text-center text-coffee-300">
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
             <p>&copy; 2024 晨光早餐店. All rights reserved.</p>
           </div>
         </div>
