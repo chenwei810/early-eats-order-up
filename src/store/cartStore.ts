@@ -70,11 +70,12 @@ export const useCartStore = create<CartStore>((set, get) => ({
   },
 
   updateQuantity: (productId: string, quantity: number) => {
-    set((state) => {
-      if (quantity <= 0) {
-        return get().removeFromCart(productId);
-      }
+    if (quantity <= 0) {
+      get().removeFromCart(productId);
+      return;
+    }
 
+    set((state) => {
       const newItems = state.cart.items.map((item) =>
         item.product.id === productId
           ? { ...item, quantity }

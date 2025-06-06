@@ -13,7 +13,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-card border-b border-border shadow-sm">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
-          <div className="w-10 h-10 breakfast-gradient rounded-full flex items-center justify-center">
+          <div className="w-10 h-10 cafe-gradient rounded-full flex items-center justify-center">
             <span className="text-white font-bold text-lg">晨</span>
           </div>
           <div>
