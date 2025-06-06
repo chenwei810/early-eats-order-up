@@ -52,47 +52,47 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <Card className="w-full max-w-md">
+    <div className="min-h-screen bg-white flex items-center justify-center p-4">
+      <Card className="w-full max-w-md bg-white border-gray-200">
         <CardHeader className="text-center">
           <div className="w-16 h-16 cafe-gradient rounded-full flex items-center justify-center mx-auto mb-4">
             <Lock className="w-8 h-8 text-white" />
           </div>
-          <CardTitle className="text-2xl">管理員登入</CardTitle>
-          <p className="text-muted-foreground">晨光早餐店 後台管理系統</p>
+          <CardTitle className="text-2xl text-gray-900">管理員登入</CardTitle>
+          <p className="text-gray-600">晨光早餐店 後台管理系統</p>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="username">帳號</Label>
+              <Label htmlFor="username" className="text-gray-700">帳號</Label>
               <div className="relative">
-                <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <User className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
                 <Input
                   id="username"
                   placeholder="請輸入管理員帳號"
-                  className="pl-10"
+                  className="pl-10 bg-white border-gray-300 text-gray-900"
                   {...register('username', { required: '請輸入帳號' })}
                 />
               </div>
               {errors.username && (
-                <p className="text-sm text-destructive">{errors.username.message}</p>
+                <p className="text-sm text-red-600">{errors.username.message}</p>
               )}
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="password">密碼</Label>
+              <Label htmlFor="password" className="text-gray-700">密碼</Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
                 <Input
                   id="password"
                   type="password"
                   placeholder="請輸入密碼"
-                  className="pl-10"
+                  className="pl-10 bg-white border-gray-300 text-gray-900"
                   {...register('password', { required: '請輸入密碼' })}
                 />
               </div>
               {errors.password && (
-                <p className="text-sm text-destructive">{errors.password.message}</p>
+                <p className="text-sm text-red-600">{errors.password.message}</p>
               )}
             </div>
 
@@ -105,7 +105,7 @@ const AdminLogin = () => {
             </Button>
           </form>
           
-          <div className="mt-6 text-center text-sm text-muted-foreground">
+          <div className="mt-6 text-center text-sm text-gray-500">
             <p>測試帳號：admin</p>
             <p>測試密碼：admin123</p>
           </div>

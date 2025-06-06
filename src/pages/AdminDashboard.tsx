@@ -64,34 +64,34 @@ const AdminDashboard = () => {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'pending':
-        return <Badge variant="secondary">已接單</Badge>;
+        return <Badge variant="secondary" className="bg-gray-100 text-gray-800">已接單</Badge>;
       case 'preparing':
-        return <Badge className="bg-orange-500">製作中</Badge>;
+        return <Badge className="bg-orange-500 text-white">製作中</Badge>;
       case 'ready':
-        return <Badge className="bg-green-500">可取餐</Badge>;
+        return <Badge className="bg-green-500 text-white">可取餐</Badge>;
       case 'completed':
-        return <Badge variant="outline">已完成</Badge>;
+        return <Badge variant="outline" className="border-gray-300 text-gray-700">已完成</Badge>;
       default:
-        return <Badge variant="outline">未知</Badge>;
+        return <Badge variant="outline" className="border-gray-300 text-gray-700">未知</Badge>;
     }
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-card border-b border-border">
+      <header className="bg-white border-b border-gray-200 shadow-sm">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-gradient">管理後台</h1>
-            <p className="text-muted-foreground">晨光早餐店 管理系統</p>
+            <p className="text-gray-600">晨光早餐店 管理系統</p>
           </div>
           
           <div className="flex items-center space-x-4">
             <div className="text-right">
-              <p className="text-sm text-muted-foreground">當前時間</p>
-              <p className="font-semibold">{currentTime.toLocaleString('zh-TW')}</p>
+              <p className="text-sm text-gray-500">當前時間</p>
+              <p className="font-semibold text-gray-900">{currentTime.toLocaleString('zh-TW')}</p>
             </div>
-            <Button variant="outline" onClick={handleLogout}>
+            <Button variant="outline" onClick={handleLogout} className="border-gray-300 text-gray-700 hover:bg-gray-50">
               <LogOut className="w-4 h-4 mr-2" />
               登出
             </Button>
@@ -99,56 +99,56 @@ const AdminDashboard = () => {
         </div>
       </header>
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 bg-white">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {/* 統計卡片 */}
-          <Card>
+          <Card className="bg-white border-gray-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">今日訂單</CardTitle>
-              <ShoppingBag className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-gray-700">今日訂單</CardTitle>
+              <ShoppingBag className="h-4 w-4 text-gray-500" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stats.todayOrders}</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold text-gray-900">{stats.todayOrders}</div>
+              <p className="text-xs text-gray-500">
                 +12% 較昨日
               </p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="bg-white border-gray-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">今日營收</CardTitle>
-              <DollarSign className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-gray-700">今日營收</CardTitle>
+              <DollarSign className="h-4 w-4 text-gray-500" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">NT$ {stats.todayRevenue.toLocaleString()}</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold text-gray-900">NT$ {stats.todayRevenue.toLocaleString()}</div>
+              <p className="text-xs text-gray-500">
                 +8% 較昨日
               </p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="bg-white border-gray-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">待處理訂單</CardTitle>
-              <Clock className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-gray-700">待處理訂單</CardTitle>
+              <Clock className="h-4 w-4 text-gray-500" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-orange-600">{stats.pendingOrders}</div>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-gray-500">
                 需要立即處理
               </p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="bg-white border-gray-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">總顧客數</CardTitle>
-              <Users className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-gray-700">總顧客數</CardTitle>
+              <Users className="h-4 w-4 text-gray-500" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stats.totalCustomers}</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold text-gray-900">{stats.totalCustomers}</div>
+              <p className="text-xs text-gray-500">
                 本月新增 23 位
               </p>
             </CardContent>
@@ -157,30 +157,30 @@ const AdminDashboard = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* 最近訂單 */}
-          <Card>
+          <Card className="bg-white border-gray-200">
             <CardHeader>
-              <CardTitle className="flex items-center justify-between">
+              <CardTitle className="flex items-center justify-between text-gray-900">
                 最近訂單
                 <Link to="/admin/orders">
-                  <Button variant="outline" size="sm">查看全部</Button>
+                  <Button variant="outline" size="sm" className="border-gray-300 text-gray-700 hover:bg-gray-50">查看全部</Button>
                 </Link>
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 {recentOrders.map((order) => (
-                  <div key={order.id} className="flex items-center justify-between p-3 border rounded-lg">
+                  <div key={order.id} className="flex items-center justify-between p-3 border border-gray-200 rounded-lg bg-white">
                     <div className="flex-1">
                       <div className="flex items-center space-x-2">
-                        <span className="font-semibold">{order.id}</span>
+                        <span className="font-semibold text-gray-900">{order.id}</span>
                         {getStatusBadge(order.status)}
                       </div>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-gray-600">
                         {order.customer} • {order.time}
                       </p>
                     </div>
                     <div className="text-right">
-                      <p className="font-semibold">NT$ {order.total}</p>
+                      <p className="font-semibold text-gray-900">NT$ {order.total}</p>
                     </div>
                   </div>
                 ))}
@@ -189,34 +189,34 @@ const AdminDashboard = () => {
           </Card>
 
           {/* 快速操作 */}
-          <Card>
+          <Card className="bg-white border-gray-200">
             <CardHeader>
-              <CardTitle>快速操作</CardTitle>
+              <CardTitle className="text-gray-900">快速操作</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 gap-4">
                 <Link to="/admin/orders">
-                  <Button variant="outline" className="w-full h-20 flex flex-col">
+                  <Button variant="outline" className="w-full h-20 flex flex-col border-gray-300 text-gray-700 hover:bg-gray-50">
                     <Package className="w-6 h-6 mb-2" />
                     訂單管理
                   </Button>
                 </Link>
                 
                 <Link to="/admin/products">
-                  <Button variant="outline" className="w-full h-20 flex flex-col">
+                  <Button variant="outline" className="w-full h-20 flex flex-col border-gray-300 text-gray-700 hover:bg-gray-50">
                     <ShoppingBag className="w-6 h-6 mb-2" />
                     商品管理
                   </Button>
                 </Link>
                 
                 <Link to="/admin/analytics">
-                  <Button variant="outline" className="w-full h-20 flex flex-col">
+                  <Button variant="outline" className="w-full h-20 flex flex-col border-gray-300 text-gray-700 hover:bg-gray-50">
                     <BarChart3 className="w-6 h-6 mb-2" />
                     營收分析
                   </Button>
                 </Link>
                 
-                <Button variant="outline" className="w-full h-20 flex flex-col">
+                <Button variant="outline" className="w-full h-20 flex flex-col border-gray-300 text-gray-700 hover:bg-gray-50">
                   <Users className="w-6 h-6 mb-2" />
                   顧客管理
                 </Button>
