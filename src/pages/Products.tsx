@@ -55,8 +55,8 @@ const Products = () => {
                   variant={selectedCategory === category.id ? "default" : "outline"}
                   onClick={() => setSelectedCategory(category.id)}
                   className={selectedCategory === category.id 
-                    ? "flex items-center space-x-2 bg-blue-500 text-white hover:bg-blue-600" 
-                    : "flex items-center space-x-2 border-gray-300 text-gray-700 hover:bg-gray-50"
+                    ? "flex items-center space-x-2 bg-primary text-primary-foreground hover:bg-primary/90" 
+                    : "flex items-center space-x-2 border-border text-foreground hover:bg-accent hover:text-accent-foreground"
                   }
                 >
                   <span>{category.icon}</span>
@@ -76,7 +76,7 @@ const Products = () => {
 
         {filteredProducts.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-600 text-lg">
+            <p className="text-muted-foreground text-lg">
               此分類暫無商品
             </p>
           </div>

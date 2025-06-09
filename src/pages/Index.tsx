@@ -38,7 +38,7 @@ const Index = () => {
                 </Button>
               </Link>
               <Link to="/order-status">
-                <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-500">
+                <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-border text-foreground hover:border-primary hover:text-primary">
                   查詢訂單
                 </Button>
               </Link>
@@ -48,7 +48,7 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
               <Card className="bg-white border-gray-200 shadow-sm">
                 <CardContent className="p-4 flex items-center space-x-3">
-                  <Clock className="w-5 h-5 text-blue-500" />
+                  <Clock className="w-5 h-5 text-primary" />
                   <div className="text-left">
                     <p className="font-semibold text-gray-900">營業時間</p>
                     <p className="text-sm text-gray-600">06:00 - 14:00</p>
@@ -58,7 +58,7 @@ const Index = () => {
               
               <Card className="bg-white border-gray-200 shadow-sm">
                 <CardContent className="p-4 flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-blue-500" />
+                  <Phone className="w-5 h-5 text-primary" />
                   <div className="text-left">
                     <p className="font-semibold text-gray-900">訂購專線</p>
                     <p className="text-sm text-gray-600">02-1234-5678</p>
@@ -68,7 +68,7 @@ const Index = () => {
               
               <Card className="bg-white border-gray-200 shadow-sm">
                 <CardContent className="p-4 flex items-center space-x-3">
-                  <MapPin className="w-5 h-5 text-blue-500" />
+                  <MapPin className="w-5 h-5 text-primary" />
                   <div className="text-left">
                     <p className="font-semibold text-gray-900">店面地址</p>
                     <p className="text-sm text-gray-600">台北市中山區</p>
@@ -80,7 +80,7 @@ const Index = () => {
         </div>
         
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ArrowDown className="w-6 h-6 text-blue-500" />
+          <ArrowDown className="w-6 h-6 text-primary" />
         </div>
       </section>
 

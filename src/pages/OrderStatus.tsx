@@ -75,21 +75,21 @@ const OrderStatus = () => {
       case 'pending':
         return { 
           label: '已接單', 
-          color: 'bg-blue-500', 
+          color: 'bg-primary', 
           icon: Clock,
           description: '您的訂單已確認，準備開始製作'
         };
       case 'preparing':
         return { 
           label: '製作中', 
-          color: 'bg-orange-500', 
+          color: 'bg-blue-600', 
           icon: Coffee,
           description: '我們正在為您精心製作美味餐點'
         };
       case 'ready':
         return { 
           label: '可取餐', 
-          color: 'bg-green-500', 
+          color: 'bg-blue-700', 
           icon: Package,
           description: '您的餐點已準備完成，請前來取餐'
         };
