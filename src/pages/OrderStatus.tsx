@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Search, Clock, CheckCircle, Package, Coffee } from 'lucide-react';
@@ -9,10 +8,12 @@ import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import Header from '@/components/Header';
 import { toast } from '@/hooks/use-toast';
+import { useOrderStore } from '@/store/orderStore';
 
 const OrderStatus = () => {
   const [searchParams] = useSearchParams();
   const initialOrderId = searchParams.get('orderId') || '';
+  const { getOrderById } = useOrderStore();
   
   const [orderId, setOrderId] = useState(initialOrderId);
   const [orderData, setOrderData] = useState(null);
@@ -49,8 +50,14 @@ const OrderStatus = () => {
       // 模擬 API 查詢
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      if (orderId.startsWith('ORD')) {
-        setOrderData(mockOrderData);
+      const foundOrder = getOrderById(orderId);
+      
+      if (foundOrder) {
+        setOrderData({
+          ...foundOrder,
+          createdAt: new Date(foundOrder.createdAt),
+          pickupTime: new Date(Date.now() + 10 * 60 * 1000) // 10分鐘後
+        });
       } else {
         setOrderData(null);
         toast({
@@ -82,28 +89,28 @@ const OrderStatus = () => {
       case 'preparing':
         return { 
           label: '製作中', 
-          color: 'bg-blue-600', 
+          color: 'bg-primary', 
           icon: Coffee,
           description: '我們正在為您精心製作美味餐點'
         };
       case 'ready':
         return { 
           label: '可取餐', 
-          color: 'bg-blue-700', 
+          color: 'bg-primary', 
           icon: Package,
           description: '您的餐點已準備完成，請前來取餐'
         };
       case 'completed':
         return { 
           label: '已完成', 
-          color: 'bg-gray-500', 
+          color: 'bg-muted', 
           icon: CheckCircle,
           description: '訂單已完成，感謝您的光臨'
         };
       default:
         return { 
           label: '未知狀態', 
-          color: 'bg-gray-500', 
+          color: 'bg-muted', 
           icon: Clock,
           description: ''
         };
@@ -145,7 +152,7 @@ const OrderStatus = () => {
                 <Button 
                   onClick={handleSearch}
                   disabled={isLoading}
-                  className="btn-primary"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90"
                 >
                   <Search className="w-4 h-4 mr-2" />
                   {isLoading ? '查詢中...' : '查詢'}
@@ -166,7 +173,7 @@ const OrderStatus = () => {
                         const statusInfo = getStatusInfo(orderData.status);
                         const IconComponent = statusInfo.icon;
                         return (
-                          <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${statusInfo.color} text-white mb-4`}>
+                          <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${statusInfo.color} text-primary-foreground mb-4`}>
                             <IconComponent className="w-8 h-8" />
                           </div>
                         );

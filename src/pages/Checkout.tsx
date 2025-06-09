@@ -10,12 +10,14 @@ import { Separator } from '@/components/ui/separator';
 import { useForm } from 'react-hook-form';
 import Header from '@/components/Header';
 import { useCartStore } from '@/store/cartStore';
+import { useOrderStore } from '@/store/orderStore';
 import { toast } from '@/hooks/use-toast';
 import { CustomerInfo } from '@/types';
 
 const Checkout = () => {
   const navigate = useNavigate();
   const { cart, clearCart } = useCartStore();
+  const { addOrder } = useOrderStore();
   const [isSubmitting, setIsSubmitting] = useState(false);
   
   const { register, handleSubmit, formState: { errors } } = useForm<CustomerInfo>();
@@ -27,6 +29,19 @@ const Checkout = () => {
       // 模擬提交訂單
       await new Promise(resolve => setTimeout(resolve, 1500));
       
+      // 將訂單加入到全域store
+      addOrder({
+        customer: data.name,
+        phone: data.phone,
+        total: cart.total,
+        items: cart.items.map(item => ({
+          name: item.product.name,
+          quantity: item.quantity,
+          price: item.product.price
+        })),
+        notes: data.notes
+      });
+
       const orderId = `ORD${Date.now()}`;
       
       // 清空購物車
@@ -61,7 +76,7 @@ const Checkout = () => {
               <p className="text-muted-foreground mb-6">
                 請先選購商品再進行結帳
               </p>
-              <Button onClick={() => navigate('/products')} className="btn-primary">
+              <Button onClick={() => navigate('/products')} className="bg-primary text-primary-foreground hover:bg-primary/90">
                 開始選購
               </Button>
             </CardContent>
@@ -131,7 +146,7 @@ const Checkout = () => {
                   
                   <Button
                     type="submit"
-                    className="w-full btn-primary text-lg py-6"
+                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-lg py-6"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? '處理中...' : `確認訂購 NT$ ${cart.total}`}
