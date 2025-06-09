@@ -22,7 +22,7 @@ const Index = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-orange-50 via-white to-amber-50">
+      <section className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-sky-50">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gradient animate-fade-in">
@@ -38,7 +38,7 @@ const Index = () => {
                 </Button>
               </Link>
               <Link to="/order-status">
-                <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-gray-300 text-gray-700 hover:border-orange-500 hover:text-orange-500">
+                <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-500">
                   查詢訂單
                 </Button>
               </Link>
@@ -48,7 +48,7 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
               <Card className="bg-white border-gray-200 shadow-sm">
                 <CardContent className="p-4 flex items-center space-x-3">
-                  <Clock className="w-5 h-5 text-orange-500" />
+                  <Clock className="w-5 h-5 text-blue-500" />
                   <div className="text-left">
                     <p className="font-semibold text-gray-900">營業時間</p>
                     <p className="text-sm text-gray-600">06:00 - 14:00</p>
@@ -58,7 +58,7 @@ const Index = () => {
               
               <Card className="bg-white border-gray-200 shadow-sm">
                 <CardContent className="p-4 flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-orange-500" />
+                  <Phone className="w-5 h-5 text-blue-500" />
                   <div className="text-left">
                     <p className="font-semibold text-gray-900">訂購專線</p>
                     <p className="text-sm text-gray-600">02-1234-5678</p>
@@ -68,7 +68,7 @@ const Index = () => {
               
               <Card className="bg-white border-gray-200 shadow-sm">
                 <CardContent className="p-4 flex items-center space-x-3">
-                  <MapPin className="w-5 h-5 text-orange-500" />
+                  <MapPin className="w-5 h-5 text-blue-500" />
                   <div className="text-left">
                     <p className="font-semibold text-gray-900">店面地址</p>
                     <p className="text-sm text-gray-600">台北市中山區</p>
@@ -80,7 +80,7 @@ const Index = () => {
         </div>
         
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ArrowDown className="w-6 h-6 text-orange-500" />
+          <ArrowDown className="w-6 h-6 text-blue-500" />
         </div>
       </section>
 
@@ -103,7 +103,7 @@ const Index = () => {
                       {category.icon}
                     </div>
                     <h3 className="font-semibold text-lg mb-2 text-gray-900">{category.name}</h3>
-                    <Badge className="bg-orange-100 text-orange-800 border-0">
+                    <Badge className="bg-blue-100 text-blue-800 border-0">
                       {category.count} 項商品
                     </Badge>
                   </CardContent>
@@ -163,10 +163,10 @@ const Index = () => {
             <div>
               <h3 className="text-xl font-bold mb-4">快速連結</h3>
               <div className="space-y-2">
-                <Link to="/products" className="block text-gray-300 hover:text-orange-400 transition-colors">
+                <Link to="/products" className="block text-gray-300 hover:text-blue-400 transition-colors">
                   線上訂購
                 </Link>
-                <Link to="/order-status" className="block text-gray-300 hover:text-orange-400 transition-colors">
+                <Link to="/order-status" className="block text-gray-300 hover:text-blue-400 transition-colors">
                   訂單查詢
                 </Link>
               </div>

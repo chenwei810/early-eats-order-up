@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Plus, Search, Edit, Trash2, Image } from 'lucide-react';
+import { ArrowLeft, Plus, Search, Edit, Trash2, Image, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -126,10 +126,18 @@ const AdminProducts = () => {
             </Link>
             <h1 className="text-3xl font-bold text-gradient">商品管理</h1>
           </div>
-          <Button className="btn-primary">
-            <Plus className="w-4 h-4 mr-2" />
-            新增商品
-          </Button>
+          <div className="flex items-center space-x-3">
+            <Link to="/">
+              <Button variant="outline" size="sm" className="border-gray-300 text-gray-700 hover:bg-gray-50">
+                <Home className="w-4 h-4 mr-2" />
+                客戶介面
+              </Button>
+            </Link>
+            <Button className="btn-primary">
+              <Plus className="w-4 h-4 mr-2" />
+              新增商品
+            </Button>
+          </div>
         </div>
 
         {/* Filters */}

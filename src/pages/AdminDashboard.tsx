@@ -8,7 +8,8 @@ import {
   Users, 
   LogOut,
   Clock,
-  Package
+  Package,
+  Home
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -66,7 +67,7 @@ const AdminDashboard = () => {
       case 'pending':
         return <Badge variant="secondary" className="bg-gray-100 text-gray-800">已接單</Badge>;
       case 'preparing':
-        return <Badge className="bg-orange-500 text-white">製作中</Badge>;
+        return <Badge className="bg-blue-500 text-white">製作中</Badge>;
       case 'ready':
         return <Badge className="bg-green-500 text-white">可取餐</Badge>;
       case 'completed':
@@ -87,6 +88,12 @@ const AdminDashboard = () => {
           </div>
           
           <div className="flex items-center space-x-4">
+            <Link to="/">
+              <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50">
+                <Home className="w-4 h-4 mr-2" />
+                回到客戶介面
+              </Button>
+            </Link>
             <div className="text-right">
               <p className="text-sm text-gray-500">當前時間</p>
               <p className="font-semibold text-gray-900">{currentTime.toLocaleString('zh-TW')}</p>
@@ -134,7 +141,7 @@ const AdminDashboard = () => {
               <Clock className="h-4 w-4 text-gray-500" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-orange-600">{stats.pendingOrders}</div>
+              <div className="text-2xl font-bold text-blue-600">{stats.pendingOrders}</div>
               <p className="text-xs text-gray-500">
                 需要立即處理
               </p>

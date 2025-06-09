@@ -55,7 +55,7 @@ const Products = () => {
                   variant={selectedCategory === category.id ? "default" : "outline"}
                   onClick={() => setSelectedCategory(category.id)}
                   className={selectedCategory === category.id 
-                    ? "flex items-center space-x-2 bg-orange-500 text-white hover:bg-orange-600" 
+                    ? "flex items-center space-x-2 bg-blue-500 text-white hover:bg-blue-600" 
                     : "flex items-center space-x-2 border-gray-300 text-gray-700 hover:bg-gray-50"
                   }
                 >
