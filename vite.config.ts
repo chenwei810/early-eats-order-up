@@ -32,6 +32,8 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
+    // 確保資源路徑正確
+    assetsDir: 'assets',
   },
   // 修正部署路徑問題
   base: './',
