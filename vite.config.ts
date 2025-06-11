@@ -33,5 +33,11 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
+  // 修正部署路徑問題
   base: './',
+  // 確保 SPA 路由正常工作
+  preview: {
+    port: 4173,
+    host: true,
+  },
 }));
