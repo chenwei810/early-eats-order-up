@@ -32,12 +32,9 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
-    // 確保資源路徑正確
     assetsDir: 'assets',
   },
-  // 修正部署路徑問題
-  base: './',
-  // 確保 SPA 路由正常工作
+  // 修正部署路徑 - 移除 base 設定，讓它使用絕對路徑
   preview: {
     port: 4173,
     host: true,
